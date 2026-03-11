@@ -22,11 +22,9 @@ export const removeWatermarkFromImage = async (
     // It supports image editing via text prompts.
     const model = 'gemini-2.5-flash-image';
 
-    let prompt = "You are a professional photo editor. Your sole task is to remove the watermark from this image. ";
-    prompt += "1. Identify the watermark: Look for semi-transparent logos, copyright text, URL addresses, or branding stamps. These are often in the corners (especially the bottom-right) or repeated patterns. ";
-    prompt += "2. Remove the watermark: Erase only these branding elements. ";
-    prompt += "3. PRESERVE CONTENT: Do NOT remove standard text, captions, speech bubbles, street signs, or any text that is part of the subject matter. Only remove the foreign branding layer. ";
-    prompt += "4. Inpaint: Fill the erased area to seamlessly match the background texture.";
+    let prompt = "Perfectly erase the watermark from this image and restore the background seamlessly. ";
+    prompt += "The final image must be a clean, natural photograph with absolutely no text, no signatures, and no logos anywhere. ";
+    prompt += "Do not add any new elements.";
 
     if (instructions && instructions.trim().length > 0) {
       prompt += `\n\nSpecific user requirement: ${instructions}`;
